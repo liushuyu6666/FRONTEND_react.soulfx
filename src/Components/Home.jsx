@@ -30,9 +30,9 @@ const Home = (props) => {
         <div className={"home-page"}>
             <div className={"home-page-main"}>
             {
-                [{dt:"Tuesday", temp:"32", weather:"rain"},
-                {dt:"Tuesday", temp:"32", weather:"cloudy"},
-                {dt:"Tuesday", temp:"32", weather:"cloudy"}].map((item, i) => (
+                [{dt:"Tuesday", temp:"2 °C", weather:"rain"},
+                {dt:"Tuesday", temp:"-12 °C", weather:"snow"},
+                {dt:"Tuesday", temp:"12 °C", weather:"cloudy"}].concat(weathers).map((item, i) => (
                     <Card weather={item["weather"]} dt={item["dt"]} temp={item["temp"]}/>
                 ))
             }

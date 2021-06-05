@@ -61,15 +61,18 @@
 /* weather card */
 .weather-card{
   display: grid;
-  grid-template-rows: 20px 150px 30px;
+  grid-template-rows: 20px 15 0px 30px;
   grid-template-areas:
     "first"
     "second"
     "third";
+  box-shadow: 10px 7px grey
 }
 
 .weather-card-first{
   grid-area: "first";
+  font-size: larger;
+  font-weight: bold;
   align-self: center;
   justify-self: center;
 }
@@ -82,6 +85,9 @@
   grid-area: "third";
   align-self: center;
   justify-self: center;
+  font-size: medium;
+  font-weight: bold;
+  color: grey;
 }
 
 
