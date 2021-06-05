@@ -18,13 +18,13 @@ const Home = (props) => {
                 const weather = item["weather"][0]["main"];
                 weatherList.push({dt: dt, temp: temp, weather: weather});
             })
-            // console.log(weatherList);
+            console.log(weatherList);
             setWeathers(weatherList);
         })
         .catch(err => console.error(err));
     }
 
-    useEffect(weatherInfo);
+    useEffect(weatherInfo,[]);
 
     return(
         <div className={"home-page"}>
