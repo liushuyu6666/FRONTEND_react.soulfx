@@ -36,3 +36,52 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/* homepage layout */
+.home-page {
+  display: grid;
+  grid-template-columns: 1fr 18fr 1fr;
+  grid-template-rows: 7px auto;
+  grid-template-areas: 
+    "header header header"
+    "left main right";
+}
+
+.home-page-main{
+  display: grid;
+  grid-area: main;
+  grid-template-columns: repeat(auto-fit, 150px);
+  place-content: center;
+  column-gap: 20px;
+  row-gap: 40px;
+}
+
+/* weather card */
+.weather-card{
+  display: grid;
+  grid-template-rows: 20px 150px 30px;
+  grid-template-areas:
+    "first"
+    "second"
+    "third";
+}
+
+.weather-card-first{
+  grid-area: "first";
+  align-self: center;
+  justify-self: center;
+}
+
+.weather-card-second{
+  grid-area: "second";
+}
+
+.weather-card-third{
+  grid-area: "third";
+  align-self: center;
+  justify-self: center;
+}
+
+
