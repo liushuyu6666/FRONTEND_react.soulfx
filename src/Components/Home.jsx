@@ -6,7 +6,8 @@ import { Card } from "./Card";
 const Home = (props) => {
 
     const [weathers, setWeathers] = useState([]);
-
+    const [error, setError] = useState({isError: false, msg:""});
+    
     // componentDidMount
     const weatherInfo = () =>{
         getWeather().then(res => {
@@ -21,19 +22,27 @@ const Home = (props) => {
             console.log(weatherList);
             setWeathers(weatherList);
         })
-        .catch(err => console.error(err));
+        .catch(err => {
+            err.then(res => {
+                console.error(res);
+                setError({isError: true, msg:res.message});
+            });
+        });
     }
 
     useEffect(weatherInfo,[]);
 
+    if(error["isError"]){
+        return(
+            <p>{error["msg"]}</p>
+        )
+    }
     return(
-        <div className={"home-page"}>
+        <div className={"home-page"} key="1">
             <div className={"home-page-main"}>
             {
-                [{dt:"Tuesday", temp:"2 °C", weather:"rain"},
-                {dt:"Tuesday", temp:"-12 °C", weather:"snow"},
-                {dt:"Tuesday", temp:"12 °C", weather:"cloudy"}].concat(weathers).map((item, i) => (
-                    <Card weather={item["weather"]} dt={item["dt"]} temp={item["temp"]}/>
+                weathers.map((item, i) => (
+                    <Card weather={item["weather"]} dt={item["dt"]} temp={item["temp"]} key={i.toString()}/>
                 ))
             }
             </div>
