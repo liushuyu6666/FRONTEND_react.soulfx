@@ -17,7 +17,8 @@ const Home = (props) => {
                 const dt = new Date(item["dt"] * 1000).toLocaleString("en-US", {weekday: "long"});
                 const temp = Math.round(parseFloat(item["main"]["temp"]) - 273.15) + "°C";
                 const weather = item["weather"][0]["main"];
-                weatherList.push({dt: dt, temp: temp, weather: weather});
+                const icon = item["weather"][0]["icon"];
+                weatherList.push({dt: dt, temp: temp, weather: weather, icon: icon});
             })
             console.log(weatherList);
             setWeathers(weatherList);
@@ -42,7 +43,7 @@ const Home = (props) => {
             <div className={"home-page-main"}>
             {
                 weathers.map((item, i) => (
-                    <Card weather={item["weather"]} dt={item["dt"]} temp={item["temp"]} key={i.toString()}/>
+                    <Card icon={item["icon"]} dt={item["dt"]} temp={item["temp"]} key={i.toString()}/>
                 ))
             }
             </div>
