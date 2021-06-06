@@ -79,6 +79,7 @@
 
 .weather-card-second{
   grid-area: "second";
+  justify-self: center;
 }
 
 .weather-card-third{
